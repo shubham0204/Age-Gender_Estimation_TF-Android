@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AgeGenderDetection" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_primary_color</item>
+        <item name="colorPrimaryVariant">@color/app_primary_color</item>
+        <item name="colorOnPrimary">@color/app_primary_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/app_secondary_color</item>
+        <item name="colorSecondaryVariant">@color/app_secondary_color</item>
+        <item name="colorOnSecondary">@color/app_secondary_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/white</item>
+        <!-- Customize your theme here. -->
+
+        <item name="fontFamily">@font/source_sans_pro</item>
+
+    </style>
+
+    <style name="AppButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="strokeColor">@color/app_secondary_color</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textColor">@color/app_secondary_color</item>
+    </style>
+
+
+</resources>

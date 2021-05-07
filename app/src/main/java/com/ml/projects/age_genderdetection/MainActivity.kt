@@ -69,13 +69,13 @@ class MainActivity : AppCompatActivity() {
     )
     // Filepaths of the models ( in the assets folder ) corresponding to the models in `modelNames`.
     private val modelFilenames = arrayOf(
-        arrayOf("model_v6_age_q.tflite", "model_v6_gender_q.tflite"),
-        arrayOf("model_v6_age_nonq.tflite", "model_v6_gender_nonq.tflite"),
-        arrayOf("model_v6_lite_age_q.tflite", "model_v6_lite_gender_q.tflite"),
-        arrayOf("model_v6_lite_age_nonq.tflite", "model_v6_lite_gender_nonq.tflite"),
+        arrayOf("model_age_q.tflite", "model_gender_q.tflite"),
+        arrayOf("model_age_nonq.tflite", "model_gender_nonq.tflite"),
+        arrayOf("model_lite_age_q.tflite", "model_lite_gender_q.tflite"),
+        arrayOf("model_lite_age_nonq.tflite", "model_lite_gender_nonq.tflite"),
     )
     // Default model filename
-    private var modelFilename = arrayOf( "model_v6_age_q.tflite", "model_v6_gender_q.tflite" )
+    private var modelFilename = arrayOf( "model_age_q.tflite", "model_gender_q.tflite" )
 
     private val shift = 5
 

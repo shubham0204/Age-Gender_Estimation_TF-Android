@@ -1,5 +1,7 @@
 # Age + Gender Estimation in Android with TensorFlow
 
+![repo_banner](images/repo_banner.png)
+
 Contents
 
 Exploring the Android project

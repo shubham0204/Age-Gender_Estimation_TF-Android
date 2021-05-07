@@ -4,20 +4,6 @@
 
 Contents
 
-- [🖥️ Python Project](#----python-project)
-  * [👉🏻 Colab Notebooks](#-----colab-notebooks)
-  * [👉🏻 Dataset](#-----dataset)
-  * [👉🏻 Model](#-----model)
-- [📱 Android Project](#---android-project)
-  * [👉🏻 Overview](#-----overview)
-  * [👉🏻 Usage](#-----usage)
-  * [👉🏻 Project Configuration](#-----project-configuration)
-  * [👉🏻 TensorFlow Lite models](#-----tensorflow-lite-models)
-  * [👉🏻 NNAPI and `GpuDelegate` compatibility](#-----nnapi-and--gpudelegate--compatibility)
-  * [👨🏻‍✈️ License](#--------license)
-
-
-
 [**Android project**](#android-project)
 
  * [Overview](#overview)
@@ -28,7 +14,7 @@ Contents
 
 [**Python project**](#python-project)
 
-* [Colab Notebooks](#colab-notebooks)
+* [Colab Notebooks](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-colab-notebooks)
 * [Dataset](#dataset)
 * [Model ( *Vanilla* vs. Lite )](#model)
 

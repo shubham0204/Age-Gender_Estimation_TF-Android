@@ -4,6 +4,20 @@
 
 Contents
 
+- [🖥️ Python Project](#----python-project)
+  * [👉🏻 Colab Notebooks](#-----colab-notebooks)
+  * [👉🏻 Dataset](#-----dataset)
+  * [👉🏻 Model](#-----model)
+- [📱 Android Project](#---android-project)
+  * [👉🏻 Overview](#-----overview)
+  * [👉🏻 Usage](#-----usage)
+  * [👉🏻 Project Configuration](#-----project-configuration)
+  * [👉🏻 TensorFlow Lite models](#-----tensorflow-lite-models)
+  * [👉🏻 NNAPI and `GpuDelegate` compatibility](#-----nnapi-and--gpudelegate--compatibility)
+  * [👨🏻‍✈️ License](#--------license)
+
+
+
 [**Android project**](#android-project)
 
  * [Overview](#overview)

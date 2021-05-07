@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.ColorDrawable
+import android.media.ExifInterface
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -203,15 +204,22 @@ class MainActivity : AppCompatActivity() {
         genderModelInterpreter.close()
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if ( resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE ) {
             // Get the full-sized Bitmap from `currentPhotoPath`.
             val bitmap = BitmapFactory.decodeFile( currentPhotoPath )
+            val exifInterface = ExifInterface( currentPhotoPath )
+            val rotatedBitmap =
+                when (exifInterface.getAttributeInt( ExifInterface.TAG_ORIENTATION , ExifInterface.ORIENTATION_UNDEFINED )) {
+                    ExifInterface.ORIENTATION_ROTATE_90 -> rotateBitmap( bitmap , 90f )
+                    ExifInterface.ORIENTATION_ROTATE_180 -> rotateBitmap( bitmap , 180f )
+                    ExifInterface.ORIENTATION_ROTATE_270 -> rotateBitmap( bitmap , 270f )
+                    else -> bitmap
+                }
             progressDialog.show()
             // Rotate and pass the clicked picture to `detectFaces`.
-            detectFaces( rotateBitmap(bitmap, -90f)!! )
+            detectFaces( rotatedBitmap!! )
         }
     }
 
@@ -285,22 +293,21 @@ class MainActivity : AppCompatActivity() {
     // Dispatch an Intent which opens the camera application for the user.
     // The code is from -> https://developer.android.com/training/camera/photobasics#TaskPath
     private fun dispatchTakePictureIntent() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-            takePictureIntent.resolveActivity(packageManager)?.also {
-                val photoFile: File? = try {
-                    createImageFile()
-                }
-                catch (ex: IOException) {
-                    null
-                }
-                photoFile?.also {
-                    val photoURI = FileProvider.getUriForFile(
-                        this,
-                        "com.ml.projects.age_genderdetection", it
-                    )
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                }
+        val takePictureIntent = Intent( MediaStore.ACTION_IMAGE_CAPTURE )
+        if ( takePictureIntent.resolveActivity( packageManager ) != null ) {
+            val photoFile: File? = try {
+                createImageFile()
+            }
+            catch (ex: IOException) {
+                null
+            }
+            photoFile?.also {
+                val photoURI = FileProvider.getUriForFile(
+                    this,
+                    "com.ml.projects.age_genderdetection", it
+                )
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
     }

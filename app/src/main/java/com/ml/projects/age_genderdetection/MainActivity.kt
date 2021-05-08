@@ -50,12 +50,13 @@ class MainActivity : AppCompatActivity() {
 
     // For reading the full-sized picture
     private val REQUEST_IMAGE_CAPTURE = 101
+    private val REQUEST_IMAGE_SELECT = 102
     private lateinit var currentPhotoPath : String
 
     // TFLite interpreters for both the models
     lateinit var ageModelInterpreter: Interpreter
     lateinit var genderModelInterpreter: Interpreter
-    private lateinit var ageEstimation: AgeEstimation
+    private lateinit var ageEstimationModel: AgeEstimationModel
     private lateinit var genderClassificationModel: GenderClassificationModel
     // Boolean values to check for NNAPI and Gpu Delegates
     private var useNNApi : Boolean = false
@@ -104,6 +105,11 @@ class MainActivity : AppCompatActivity() {
     // `onClick` method for R.id.button
     fun openCamera( v: View ) {
         dispatchTakePictureIntent()
+    }
+
+    // `onClick` method for R.id.button2
+    fun selectImage( v : View ) {
+        dispatchSelectPictureIntent()
     }
 
     // `onClick` method for R.id.reinitialize_button
@@ -187,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         ageModelInterpreter = Interpreter(FileUtil.loadMappedFile( applicationContext , modelFilename[0]), options )
         genderModelInterpreter = Interpreter(FileUtil.loadMappedFile( applicationContext , modelFilename[1]), options )
         withContext( Dispatchers.Main ){
-            ageEstimation = AgeEstimation().apply {
+            ageEstimationModel = AgeEstimationModel().apply {
                 interpreter = ageModelInterpreter
             }
             genderClassificationModel = GenderClassificationModel().apply {
@@ -206,11 +212,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        // If the user opened the camera
         if ( resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE ) {
             // Get the full-sized Bitmap from `currentPhotoPath`.
-            val bitmap = BitmapFactory.decodeFile( currentPhotoPath )
+            var bitmap = BitmapFactory.decodeFile( currentPhotoPath )
             val exifInterface = ExifInterface( currentPhotoPath )
-            val rotatedBitmap =
+            bitmap =
                 when (exifInterface.getAttributeInt( ExifInterface.TAG_ORIENTATION , ExifInterface.ORIENTATION_UNDEFINED )) {
                     ExifInterface.ORIENTATION_ROTATE_90 -> rotateBitmap( bitmap , 90f )
                     ExifInterface.ORIENTATION_ROTATE_180 -> rotateBitmap( bitmap , 180f )
@@ -218,8 +225,17 @@ class MainActivity : AppCompatActivity() {
                     else -> bitmap
                 }
             progressDialog.show()
-            // Rotate and pass the clicked picture to `detectFaces`.
-            detectFaces( rotatedBitmap!! )
+            // Pass the clicked picture to `detectFaces`.
+            detectFaces( bitmap!! )
+        }
+        // if the user selected an image from the gallery
+        else if ( resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_SELECT ) {
+            val inputStream = contentResolver.openInputStream( data?.data!! )
+            val bitmap = BitmapFactory.decodeStream( inputStream )
+            inputStream?.close()
+            progressDialog.show()
+            // Pass the clicked picture to `detectFaces`.
+            detectFaces( bitmap!! )
         }
     }
 
@@ -235,12 +251,12 @@ class MainActivity : AppCompatActivity() {
                         coroutineScope.launch {
 
                             // Predict the age and the gender.
-                            val age = ageEstimation.predictAge(cropToBBox(image, faces[0].boundingBox))
+                            val age = ageEstimationModel.predictAge(cropToBBox(image, faces[0].boundingBox))
                             val gender = genderClassificationModel.predictGender(cropToBBox(image, faces[0].boundingBox))
 
                             // Show the inference time to the user via `inferenceSpeedTextView`.
-                            inferenceSpeedTextView.text = "Age Detection model inference time : ${ageEstimation.inferenceTime} ms \n" +
-                                    "Gender Detection model inference time : ${ageEstimation.inferenceTime} ms"
+                            inferenceSpeedTextView.text = "Age Detection model inference time : ${ageEstimationModel.inferenceTime} ms \n" +
+                                    "Gender Detection model inference time : ${ageEstimationModel.inferenceTime} ms"
 
                             // Show the final output to the user.
                             ageOutputTextView.text = floor( age.toDouble() ).toInt().toString()
@@ -288,6 +304,15 @@ class MainActivity : AppCompatActivity() {
         return File.createTempFile("image", ".jpg", imagesDir).apply {
             currentPhotoPath = absolutePath
         }
+    }
+
+    // Dispatch an Intent which opens the gallery application for the user.
+    private fun dispatchSelectPictureIntent() {
+        val selectPictureIntent = Intent( Intent.ACTION_OPEN_DOCUMENT ).apply {
+            type = "image/*"
+            addCategory( Intent.CATEGORY_OPENABLE )
+        }
+        startActivityForResult( selectPictureIntent , REQUEST_IMAGE_SELECT )
     }
 
     // Dispatch an Intent which opens the camera application for the user.

@@ -2,21 +2,33 @@
 
 ![repo_banner](images/repo_banner.png)
 
-Contents
+---
 
-[**Android project**](#android-project)
+### **Contents**
 
- * [Overview](#overview)
- * [Usage](#usage)
- * [Project Configuration ( + Firebase Services )](#project-configuration)
- * [TensorFlow Lite models](#tensorflow-lite-models)
- * [NNAPI and `GpuDelegate` compatibility](#nnapi-and-gpudelegate-compatibility)
+*[**Python project**](#python-project)*
 
-[**Python project**](#python-project)
+* [Google Colab Notebooks](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-colab-notebooks)
+* [Dataset](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-dataset)
+* [Model ( *Vanilla* vs. Lite )](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-model)
 
-* [Colab Notebooks](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-colab-notebooks)
-* [Dataset](#dataset)
-* [Model ( *Vanilla* vs. Lite )](#model)
+*[**Android project**](#android-project)*
+
+ * [Overview](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-overview)
+ * [Usage](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-usage)
+ * [Project Configuration ( + Firebase Services )](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-project-configuration)
+ * [TensorFlow Lite models](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-tensorflow-lite-models)
+ * [NNAPI and `GpuDelegate` compatibility](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-nnapi-and-gpudelegate-compatibility)
+
+*[Issues and Suggestions]()*
+
+*[License](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#%EF%B8%8F-license)*
+
+---
+
+
+---
+
 
 ## 🖥️ Python Project
 
@@ -24,8 +36,13 @@ Contents
 
 As the application uses two different models for age and gender estimation, we provide two notebooks to train the age and gender detection models. These are Google Colab notebooks and are capable of downloading the dataset, training the model, and finally exporting the TFLite model ( used in the Android app ).
 
-* [`Age Estimation in TensorFlow - Google Colab`]()
-* [`Gender Classification in TensorFlow - Google Colab`]()
+* [`Age Estimation in TensorFlow - Google Colab`](https://colab.research.google.com/drive/1to2iolQGIVZgXFWRmRKZGrny5kfXk40h?usp=sharing)
+* [`Gender Classification in TensorFlow - Google Colab`](https://colab.research.google.com/drive/1aOMbQYK2bvedNVXkZvHC_FsBsKrCx01P?usp=sharing)
+
+You  may download the IPYNB notebooks, 
+
+* [`Age Estimation in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Age_Estimation_(W1).ipynb)
+* [`Gender Classification in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Gender_Estimation_(W2).ipynb)
 
 > The notebooks describe each step in the implementation and are self explanatory. For any questions/issues/suggestions regarding the notebooks, see
 
@@ -68,13 +85,13 @@ if lite_model:
 Separable Convolutions have lesser parameters than standard convolutions, and hence reduce the size of our model. Also, the `lite` models run faster as compared to their `vanilla` counterparts. The increase in speed is companioned with a slight decrease in the performance of the model as shown below,
 
 | Model ( Age Estimation ) | `vanilla` model | `lite` model | 
-|--|--| -- |
+|--|:--:| :--: |
 | MAE | `2.425` | `4.586` |
 
 
 
 | Model ( Gender Classification ) | `vanilla` model | `lite` model | 
-|--|--| -- |
+|--|:--:| :--: |
 | Accuracy ( % ) | `99.8` | `96.4` |
 
 ---
@@ -140,7 +157,7 @@ implementation 'org.tensorflow:tensorflow-lite:2.4.0'
 implementation 'org.tensorflow:tensorflow-lite-gpu:2.4.0'  
 implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
 ```
-> See the [packages on JFrong Bintray](https://bintray.com/google/tensorflow).
+> See the [packages on JFrog Bintray](https://bintray.com/google/tensorflow).
 
 All TFLite models are placed in the app's `assets` folder. In order to disable the compression performed on files present in the `assets` folder, we add the following flag in app's `build.gradle` ,
 
@@ -197,9 +214,16 @@ if ( !compatList.isDelegateSupportedOnThisDevice ){
 }
 ```
 
+## 🔧 Issues and Suggestions
+
+If any issue occurs, you may [open an issue]() or [start a new discussion](). Please mention the following while addressing your issue,
+
+* The name of the device you're using ( along with its Android version ).
+* Crash logs if you think they might be helpful.
+* If you've found something related to the issue elsewhere, mention them as well so that the issue could be resolved as fast as possible.
 
 
-### 👨🏻‍✈️ License
+## 👨🏻‍✈️ License
 
 ```
 MIT License  

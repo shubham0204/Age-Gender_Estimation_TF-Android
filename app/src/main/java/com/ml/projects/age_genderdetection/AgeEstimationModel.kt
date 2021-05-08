@@ -10,7 +10,7 @@ import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 
 // Helper class for age estimation model
-class AgeEstimation {
+class AgeEstimationModel {
 
     // Input image size for our model
     private val inputImageSize = 200

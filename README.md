@@ -6,13 +6,13 @@
 
 ### **Contents**
 
-*[**Python project**](#python-project)*
+*[**Python project**](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#%EF%B8%8F-python-project)*
 
 * [Google Colab Notebooks](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-colab-notebooks)
 * [Dataset](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-dataset)
 * [Model ( *Vanilla* vs. Lite )](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-model)
 
-*[**Android project**](#android-project)*
+*[**Android project**](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-android-project)*
 
  * [Overview](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-overview)
  * [Usage](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-usage)
@@ -20,7 +20,7 @@
  * [TensorFlow Lite models](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-tensorflow-lite-models)
  * [NNAPI and `GpuDelegate` compatibility](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-nnapi-and-gpudelegate-compatibility)
 
-*[Issues and Suggestions]()*
+*[Issues and Suggestions](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-issues-and-suggestions)*
 
 *[License](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#%EF%B8%8F-license)*
 

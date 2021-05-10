@@ -1,4 +1,6 @@
-# Age + Gender Estimation in Android with TensorFlow
+<div align="center">
+  <h1>Age + Gender Estimation in Android with TensorFlow</h1>
+</div>
 
 ![repo_banner](images/repo_banner.png)
 
@@ -45,7 +47,12 @@ You  may download the IPYNB notebooks,
 * [`Age Estimation in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Age_Estimation_(W1).ipynb)
 * [`Gender Classification in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Gender_Estimation_(W2).ipynb)
 
-> The notebooks describe each step in the implementation and are self explanatory. For any questions/issues/suggestions regarding the notebooks, see
+> The notebooks describe each step in the implementation and are self explanatory. For any questions/issues/suggestions regarding the notebooks, see *[Issues and Suggestions](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-issues-and-suggestions)*
+
+The Keras models ( `.h5` ) are available here,
+
+* [`Keras models for age and gender estimation`](https://drive.google.com/drive/folders/13478oTfOHD9Fkf53FtLXQEXO_IlgIPP5?usp=sharing)
+
 
 ### 👉🏻 Dataset
 

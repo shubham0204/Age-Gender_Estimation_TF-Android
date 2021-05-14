@@ -39,13 +39,13 @@
 
 As the application uses two different models for age and gender estimation, we provide two notebooks to train the age and gender detection models. These are Google Colab notebooks and are capable of downloading the dataset, training the model, and finally exporting the TFLite model ( used in the Android app ).
 
-* [`Age Estimation in TensorFlow - Google Colab`](https://colab.research.google.com/drive/1to2iolQGIVZgXFWRmRKZGrny5kfXk40h?usp=sharing)
-* [`Gender Classification in TensorFlow - Google Colab`](https://colab.research.google.com/drive/1aOMbQYK2bvedNVXkZvHC_FsBsKrCx01P?usp=sharing)
+* [`Age Estimation in TensorFlow - Google Colab`]()
 
-You  may download the IPYNB notebooks, 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shubham0204/Google_Colab_Notebooks/blob/main/Age_Estimation_(W1).ipynb)
 
-* [`Age Estimation in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Age_Estimation_(W1).ipynb)
-* [`Gender Classification in TensorFlow - Jupyter Notebook`](https://github.com/shubham0204/Google_Colab_Notebooks/blob/main/Gender_Estimation_(W2).ipynb)
+* [`Gender Classification in TensorFlow - Google Colab`]()
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shubham0204/Google_Colab_Notebooks/blob/main/Gender_Estimation_(W2).ipynb)
 
 > The notebooks describe each step in the implementation and are self explanatory. For any questions/issues/suggestions regarding the notebooks, see *[Issues and Suggestions](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#-issues-and-suggestions)*
 

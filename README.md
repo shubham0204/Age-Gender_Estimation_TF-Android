@@ -60,7 +60,7 @@ The TensorFlow models are trained on the [UTKFace dataset](https://susanqq.githu
 
 For both the models, we use 3-channeled RGB images as inputs. The age estimation model takes in `200 * 200` images as inputs whereas the gender classification model takes in images of size `128 * 128`.
 
-* For the age estimation model, we normalize the target variable i.e the age of the person. Hence the model's output is in the range `( 0 , 1 ]`. The predicted age is obtained by multiplying the model's output with a suitable factor ( which in our case is `110` ).
+* For the age estimation model, we normalize the target variable i.e the age of the person. Hence the model's output is in the range `( 0 , 1 ]`. The predicted age is obtained by multiplying the model's output with a suitable factor ( which in our case is `116` ).
 * For gender classification, the model outputs a probability distribution for the two labels `male` and `female` .
 
 ### 👉🏻 Model
@@ -94,7 +94,7 @@ Separable Convolutions have lesser parameters than standard convolutions, and he
 
 | Model ( Age Estimation ) | `vanilla` model | `lite` model | 
 |--|:--:| :--: |
-| MAE | `2.425` | `4.586` |
+| MAE | `2.586` | `5.22` |
 
 
 

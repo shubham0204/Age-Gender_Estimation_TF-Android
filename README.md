@@ -94,12 +94,14 @@ Separable Convolutions have lesser parameters than standard convolutions, and he
 
 | Model ( Age Estimation ) | `vanilla` model | `lite` model | 
 |--|:--:| :--: |
-| MAE | `2.586` | `5.22` |
+| No. of parameters| 1,069,297 | 200,956 |
+| MAE | `2.425` | `4.586` |
 
 
 
 | Model ( Gender Classification ) | `vanilla` model | `lite` model | 
 |--|:--:| :--: |
+| No. of parameters | 675,090 | 328,733 |
 | Accuracy ( % ) | `99.8` | `96.4` |
 
 ---

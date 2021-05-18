@@ -25,7 +25,7 @@ class AgeEstimationModel {
 
     // The model returns a normalized value for the age i.e in range ( 0 , 1 ].
     // To get the age, we multiply the model's output with p.
-    private val p = 110
+    private val p = 116
 
     // Time taken by the model ( in milliseconds ) to perform the inference.
     var inferenceTime : Long = 0

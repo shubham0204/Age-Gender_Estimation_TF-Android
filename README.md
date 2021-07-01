@@ -26,6 +26,8 @@
 
 *[License](https://github.com/shubham0204/Age-Gender_Estimation_TF-Android#%EF%B8%8F-license)*
 
+>  I'm open for **freelancing** in Android + ML projects. You may send me an email at **equipintelligence@gmail.com**.
+
 ---
 
 ![results](images/results.png)

@@ -1,0 +1,7 @@
+- Migrated from XML to Jetpack Compose
+- Migrated `onActivityResult` to `ActivityResultsContract`
+- Updated `workflows/build_apk.yml` to build and release APK 
+- Migrated from Groovy build scripts to KTS 
+- Updated `themes.xml`
+- Updated `build.gradle.kts` (project-level)
+- Updated package name from `com.ml.projects.age_genderdetection` to `com.ml.shubham0204.age_genderdetection`

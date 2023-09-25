@@ -1,7 +1,8 @@
-package com.ml.projects.age_genderdetection
+package com.ml.shubham0204.age_genderdetection
 
 import android.graphics.Bitmap
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.ops.NormalizeOp
 import org.tensorflow.lite.support.image.ImageProcessor

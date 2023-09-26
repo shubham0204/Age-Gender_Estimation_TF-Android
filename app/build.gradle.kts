@@ -59,6 +59,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.runtime:runtime-livedata")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
 
     // MLKit Face Detection
     implementation("com.google.mlkit:face-detection:16.1.5")
